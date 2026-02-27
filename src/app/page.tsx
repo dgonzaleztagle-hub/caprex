@@ -269,6 +269,9 @@ export default function CaprexPage() {
           /* Inputs full width */
           .caprex-root input{width:100%!important;box-sizing:border-box!important;}
         }
+        .caprex-root input::placeholder { color: rgba(255,255,255,0.7) !important; opacity: 1; }
+        .caprex-root input:-ms-input-placeholder { color: rgba(255,255,255,0.7) !important; }
+        .caprex-root input::-ms-input-placeholder { color: rgba(255,255,255,0.7) !important; }
       `}</style>
 
             {/* ── WhatsApp flotante ── */}
@@ -787,17 +790,17 @@ export default function CaprexPage() {
                                 window.open(finalWaLink, '_blank');
                             }} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
                                 <input required name="empresa" placeholder="Nombre de tu empresa"
-                                    style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
-                                    onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
-                                    onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
+                                    style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif', transition: 'all 0.2s' }}
+                                    onFocus={e => { e.target.style.borderColor = '#fff'; e.target.style.background = 'rgba(255,255,255,0.18)'; }}
+                                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.3)'; e.target.style.background = 'rgba(255,255,255,0.12)'; }} />
                                 <input required name="email" type="email" placeholder="Tu email"
-                                    style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
-                                    onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
-                                    onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
+                                    style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif', transition: 'all 0.2s' }}
+                                    onFocus={e => { e.target.style.borderColor = '#fff'; e.target.style.background = 'rgba(255,255,255,0.18)'; }}
+                                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.3)'; e.target.style.background = 'rgba(255,255,255,0.12)'; }} />
                                 <input required name="tel" placeholder="WhatsApp / teléfono"
-                                    style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
-                                    onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
-                                    onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
+                                    style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.3)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif', transition: 'all 0.2s' }}
+                                    onFocus={e => { e.target.style.borderColor = '#fff'; e.target.style.background = 'rgba(255,255,255,0.18)'; }}
+                                    onBlur={e => { e.target.style.borderColor = 'rgba(255,255,255,0.3)'; e.target.style.background = 'rgba(255,255,255,0.12)'; }} />
                                 <button type="submit" style={{ background: '#fff', color: '#2563EB', border: 'none', borderRadius: '9999px', padding: '1rem', fontWeight: 900, fontSize: '0.9rem', letterSpacing: '0.08em', cursor: 'pointer', fontFamily: "'Space Grotesk',sans-serif", marginTop: '0.5rem', transition: 'transform 0.2s' }}
                                     onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
                                     onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}>
