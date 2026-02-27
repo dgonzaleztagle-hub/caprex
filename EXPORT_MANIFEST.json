@@ -1,0 +1,11 @@
+{
+  "client": "caprex",
+  "exportedAt": "2026-02-27T16:17:56.367Z",
+  "version": "3.0.0",
+  "stats": {
+    "filesCount": 2,
+    "assetsCount": 1,
+    "dependencies": 8,
+    "devDependencies": 8
+  }
+}
