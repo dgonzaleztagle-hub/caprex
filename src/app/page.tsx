@@ -7,7 +7,7 @@ import { ChevronRight, Menu, X, FileText, CalendarCheck, AlertOctagon, Heart, Vi
 
 const LOGO = '/prospectos/caprex/logo.png';
 const WA_LINK = 'https://wa.me/56926198159?text=Hola%2C%20quiero%20una%20propuesta%20personalizada%20para%20mi%20empresa';
-const NAV = ['Servicios', 'Nosotros', 'Proceso', 'Contacto'];
+const NAV = ['Servicios', 'Nosotros', 'Contacto'];
 
 // ── SERVICIOS REALES (del documento del cliente) ──────────────────
 const SERVICES = [
@@ -90,11 +90,6 @@ const TARGETS = [
     { icon: Landmark, label: 'Instituciones', desc: 'Públicas y privadas — bienestar y capacitación' },
 ];
 
-const STEPS = [
-    { n: '01', title: 'Evaluamos tu empresa', desc: 'Analizamos tu realidad: rubro, tamaño, normativa aplicable y brechas actuales. Proyecto puntual o asesoría mensual — según lo que necesites.' },
-    { n: '02', title: 'Propuesta a medida', desc: 'Te presentamos un plan concreto, aplicable y con alcance claro. Sin paquetes genéricos. Adaptado al tamaño y realidad de tu organización.' },
-    { n: '03', title: 'Implementación y acompañamiento', desc: 'Ejecutamos, capacitamos y documentamos. Estamos disponibles cuando la normativa cambia, cuando llega un inspector o cuando tu equipo necesita apoyo.' },
-];
 
 const TESTIMONIALS = [
     { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
@@ -595,43 +590,6 @@ export default function CaprexPage() {
                 </div>
             </section>
 
-
-            {/* ── CÓMO FUNCIONA ── */}
-            <section id="proceso" style={{ background: '#0B1526', padding: '7rem 2.5rem' }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}
-                        style={{ marginBottom: '5rem', textAlign: 'center' }}>
-                        <span style={{ color: '#2563EB', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase' }}>El proceso</span>
-                        <h2 style={{ fontSize: 'clamp(2.5rem,6vw,5rem)', fontWeight: 900, lineHeight: 0.95, marginTop: '0.5rem', letterSpacing: '-0.05em' }}>
-                            ¿CÓMO<br /><span style={{ color: 'transparent', WebkitTextStroke: '1.5px #2563EB' }}>FUNCIONA?</span>
-                        </h2>
-                    </motion.div>
-
-                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}
-                        style={{ marginTop: '3rem', marginBottom: '3rem', height: '1px', background: 'linear-gradient(90deg,transparent,#2563EB,transparent)' }} />
-
-                    <div className="steps-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '2rem', position: 'relative' }}>
-                        {STEPS.map((step, i) => (
-                            <motion.div key={step.n} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={i}
-                                whileHover={{ y: -8, scale: 1.01, borderColor: '#2563EB88', backgroundColor: 'rgba(255,255,255,0.04)' }}
-                                style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid #1E3A5F44', borderRadius: '1.5rem', padding: '2.5rem 2rem', position: 'relative', zIndex: 1, transition: 'all 0.4s ease' }}>
-                                <div style={{ width: '3.5rem', height: '3.5rem', borderRadius: '50%', background: '#0B1526', border: '2px solid #2563EB', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem' }}>
-                                    <span style={{ color: '#2563EB', fontFamily: "'Space Grotesk',sans-serif", fontWeight: 900, fontSize: '0.85rem' }}>{step.n}</span>
-                                </div>
-                                <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '0.75rem', letterSpacing: '-0.03em' }}>{step.title}</h3>
-                                <p style={{ color: '#64748B', fontSize: '0.9rem', lineHeight: 1.7 }}>{step.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}
-                        style={{ marginTop: '3rem', textAlign: 'center' }}>
-                        <button className="c-btn c-btn-primary" onClick={() => setContactOpen(true)}>
-                            Coticemos tu propuesta <ArrowRight size={16} />
-                        </button>
-                    </motion.div>
-                </div>
-            </section>
 
             {/* ── CARLA GAJARDO (Editorial Narrative) ── */}
             <section id="nosotros" style={{ padding: '8rem 2.5rem', background: '#0F1A2E', position: 'relative', overflow: 'hidden' }}>
