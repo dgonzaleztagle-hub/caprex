@@ -92,9 +92,9 @@ const TARGETS = [
 
 
 const TESTIMONIALS = [
-    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
-    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
-    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
+    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...', img: '/prospectos/caprex/testi-1.png' },
+    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...', img: '/prospectos/caprex/testi-2.png' },
+    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...', img: '/prospectos/caprex/testi-3.png' },
 ];
 
 const FAQS = [
@@ -695,10 +695,10 @@ export default function CaprexPage() {
                     <div className="testi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
                         {TESTIMONIALS.map((t, i) => (
                             <motion.div key={t.initials} className="testi-card" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={i}>
-                                <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: 1.75, fontStyle: 'italic' }}>"{t.quote}"</p>
+                                <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: 1.75, fontStyle: 'italic', flexGrow: 1 }}>"{t.quote}"</p>
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-                                    <div style={{ width: '42px', height: '42px', borderRadius: '50%', background: 'linear-gradient(135deg,#2563EB,#1A2D6B)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'Space Grotesk',sans-serif", fontWeight: 800, fontSize: '0.8rem', color: '#fff', flexShrink: 0 }}>
-                                        {t.initials}
+                                    <div style={{ width: '48px', height: '48px', borderRadius: '50%', border: '2px solid #2563EB', overflow: 'hidden', flexShrink: 0, position: 'relative' }}>
+                                        <Image src={t.img} alt={t.company} fill style={{ objectFit: 'cover' }} />
                                     </div>
                                     <div>
                                         <div style={{ fontWeight: 700, fontSize: '0.88rem', color: '#E2EAF8' }}>{t.role}</div>
