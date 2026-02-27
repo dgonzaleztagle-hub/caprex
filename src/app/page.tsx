@@ -643,10 +643,10 @@ export default function CaprexPage() {
                         {/* Columna Texto: Biografía Manifest */}
                         <div>
                             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}>
-                                <span style={{ color: '#2563EB', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.3rem', textTransform: 'uppercase' }}>Ingeniería Humanista</span>
+                                <span style={{ color: '#2563EB', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.3rem', textTransform: 'uppercase' }}>Autoridad y Visión</span>
                                 <h2 style={{ fontSize: 'clamp(2.2rem,4vw,3.8rem)', fontWeight: 900, lineHeight: 1, marginTop: '1rem', marginBottom: '2.5rem', letterSpacing: '-0.04em' }}>
-                                    Cuidar personas es el<br />
-                                    <span style={{ color: '#2563EB' }}>corazón de todo.</span>
+                                    Liderazgo experto en<br />
+                                    <span style={{ color: '#2563EB' }}>seguridad estratégica.</span>
                                 </h2>
 
                                 <div style={{ color: '#E2EAF8', fontSize: '1.05rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1.5rem', opacity: 0.9 }}>
@@ -666,7 +666,7 @@ export default function CaprexPage() {
 
                                 <motion.div style={{ marginTop: '3rem' }} whileHover={{ scale: 1.02 }}>
                                     <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="c-btn c-btn-primary">
-                                        <MessageCircle size={18} /> Contactar a Carla
+                                        <MessageCircle size={18} /> Contactar
                                     </a>
                                 </motion.div>
                             </motion.div>
