@@ -92,9 +92,9 @@ const TARGETS = [
 
 
 const TESTIMONIALS = [
-    { initials: 'JA', role: 'Juan Avendaño', company: 'Gerente General – IVAL', quote: 'Es difícil encontrar una empresa que realmente entregue la seguridad de que las cosas se están haciendo bien. Con CAPREX encontramos ese respaldo. Hoy nuestros trabajadores están seguros, y yo también.', img: '/prospectos/caprex/testi-1.png' },
+    { initials: 'JA', role: 'Juan Avendaño', company: 'Gerente General – IVAL', quote: 'Es difícil encontrar una empresa que realmente entregue la seguridad de que las cosas se están haciendo bien. Con CAPREX encontramos ese respaldo. Hoy nuestros trabajadores están seguros, y yo también.', img: '/prospectos/caprex/testi-2.png' },
     { initials: 'RV', role: 'Rebeca Vasquez', company: 'Jefe de RRHH – Entre Causas', quote: 'En Entre Causas sabíamos cómo conformar nuestro Comité Paritario, pero no contábamos con el tiempo para hacerlo correctamente. CAPREX se encargó de todo en una jornada, con claridad y respaldo normativo. Hoy tenemos un comité activo y funcionando, con la tranquilidad de que está bien hecho.', img: '/prospectos/caprex/testi-3.png' },
-    { initials: 'PV', role: 'Pendiente', company: 'Empresa', quote: 'Trabajar con Carla, fue siempre un agrado y una experiencia enriquecedora, por su profesionalismo, constancia, siempre eficiente y preocupada de los objetivos de la organización.', img: '/prospectos/caprex/testi-2.png' },
+    { initials: 'CN', role: 'Carlos Neculman', company: 'Dirección Jurídica Municipalidad Quilicura', quote: 'Trabajar con Carla, fue siempre un agrado y una experiencia enriquecedora, por su profesionalismo, constancia, siempre eficiente y preocupada de los objetivos de la organización.', img: '/prospectos/caprex/testi-1.png' },
 ];
 
 const FAQS = [
