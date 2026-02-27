@@ -97,9 +97,9 @@ const STEPS = [
 ];
 
 const TESTIMONIALS = [
-    { initials: 'R.V.', role: 'Gerente RRHH', company: 'Empresa Construcción — 120 trabajadores', quote: 'Antes teníamos un prevencionista part-time que no alcanzaba a cubrir todo. CAPREX nos organizó todo el sistema de prevención en 3 meses. El último Dipcomp no encontró ninguna brecha.' },
-    { initials: 'M.T.', role: 'Dueño', company: 'Planta Metalmecánica — 45 trabajadores', quote: 'La Ley Karin nos tenía confundidos y con miedo a un error. Carla llegó, explicó todo en términos claros e implementó el protocolo en dos semanas. Quedamos tranquilos.' },
-    { initials: 'A.C.', role: 'Administradora', company: 'Servicios Logísticos — 60 trabajadores', quote: 'Lo que más valoro es el trato directo. No llamas a un call center, hablas con quien sabe. Y cuando hay una emergencia, responden al tiro.' },
+    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
+    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
+    { initials: '-', role: 'Cargo', company: 'Empresa', quote: 'Próximamente testimonio real...' },
 ];
 
 const FAQS = [
@@ -637,14 +637,13 @@ export default function CaprexPage() {
                     <div className="carla-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'start' }}>
 
                         {/* Contenedor de Fotos (Cards de Fundadores) */}
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.25rem' }} className="bento-row">
+                        <div style={{ display: 'flex', justifyContent: 'center' }}>
                             {[
                                 { name: 'Carla Gajardo', role: 'Cofundadora', bg: 'linear-gradient(160deg,#1A2D6B 0%,#0B1526 100%)' },
-                                { name: 'Juan Avendaño', role: 'Cofundador', bg: 'linear-gradient(160deg,#1E3A5F 0%,#0B1526 100%)' }
                             ].map((f, idx) => (
                                 <motion.div key={f.name} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={idx * 0.2}
                                     whileHover={{ y: -10, scale: 1.03, boxShadow: '0 30px 60px -15px rgba(37,99,235,0.3)' }}
-                                    style={{ position: 'relative', transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)' }}>
+                                    style={{ position: 'relative', transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)', maxWidth: '400px', width: '100%' }}>
                                     <div className="carla-foto" style={{
                                         width: '100%', aspectRatio: '3/4',
                                         background: f.bg,
@@ -659,11 +658,9 @@ export default function CaprexPage() {
                                             <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', color: '#2563EB', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{f.role}</div>
                                             <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: '1.4rem', fontWeight: 900, color: '#E2EAF8', letterSpacing: '-0.04em', lineHeight: 1.1 }}>{f.name}</div>
                                         </div>
-                                        {f.name === 'Carla Gajardo' && (
-                                            <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#2563EB', borderRadius: '0.5rem', padding: '0.3rem 0.6rem' }}>
-                                                <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.05em' }}>16 AÑOS EXP.</span>
-                                            </div>
-                                        )}
+                                        <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#2563EB', borderRadius: '0.5rem', padding: '0.3rem 0.6rem' }}>
+                                            <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.05em' }}>16 AÑOS EXP.</span>
+                                        </div>
                                     </div>
                                 </motion.div>
                             ))}
