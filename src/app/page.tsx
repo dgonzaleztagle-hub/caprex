@@ -638,7 +638,36 @@ export default function CaprexPage() {
                 <div style={{ position: 'absolute', top: '0', right: '0', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle,#2563EB08 0%,transparent 70%)', pointerEvents: 'none' }} />
 
                 <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                    <div className="carla-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '5rem', alignItems: 'start' }}>
+                    {/* Top: Misión & Visión (Autoridad Institucional) */}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '5rem' }}>
+                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}
+                            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '2rem' }}>
+                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+                                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Target size={24} color="#2563EB" />
+                                </div>
+                                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: "'Space Grotesk', sans-serif" }}>Misión</h4>
+                            </div>
+                            <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: 1.7 }}>
+                                Diseñar soluciones integrales en prevención de riesgos que vayan más allá del cumplimiento legal, generando impacto real en la seguridad, bienestar y productividad organizacional.
+                            </p>
+                        </motion.div>
+
+                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}
+                            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '2rem' }}>
+                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+                                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <TrendingUp size={24} color="#2563EB" />
+                                </div>
+                                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: "'Space Grotesk', sans-serif" }}>Visión</h4>
+                            </div>
+                            <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: 1.7 }}>
+                                Ser la consultora referente en Chile, reconocida por transformar la cultura preventiva e integrar la salud física y bienestar emocional como pilares del éxito.
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    <div className="carla-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '5rem', alignItems: 'center' }}>
 
                         {/* Columna Texto: Biografía Manifest */}
                         <div>
@@ -672,8 +701,8 @@ export default function CaprexPage() {
                             </motion.div>
                         </div>
 
-                        {/* Columna Identidad: Foto + Misión/Visión */}
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                        {/* Columna Identidad: Solo Foto */}
+                        <div>
                             {/* Card Fotografía (Placeholder animado) */}
                             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
                                 whileHover={{ y: -5 }}
@@ -690,35 +719,6 @@ export default function CaprexPage() {
                                     <span style={{ color: '#fff', fontSize: '0.7rem', fontWeight: 900 }}>16+ AÑOS DE EXPERIENCIA</span>
                                 </div>
                             </motion.div>
-
-                            {/* Misión & Visión */}
-                            <div style={{ display: 'grid', gap: '1.5rem' }}>
-                                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}
-                                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '1.5rem' }}>
-                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '0.75rem' }}>
-                                        <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                            <Target size={20} color="#2563EB" />
-                                        </div>
-                                        <h4 style={{ fontSize: '1.1rem', fontWeight: 800 }}>Misión</h4>
-                                    </div>
-                                    <p style={{ color: '#94A3B8', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                                        Diseñar soluciones integrales que vayan más allá del cumplimiento legal, generando impacto real en la seguridad, bienestar y productividad mediante un enfoque cercano y profundamente humano.
-                                    </p>
-                                </motion.div>
-
-                                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2}
-                                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '1.5rem' }}>
-                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '0.75rem' }}>
-                                        <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                            <TrendingUp size={20} color="#2563EB" />
-                                        </div>
-                                        <h4 style={{ fontSize: '1.1rem', fontWeight: 800 }}>Visión</h4>
-                                    </div>
-                                    <p style={{ color: '#94A3B8', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                                        Ser la consultora referente en Chile, reconocida por transformar la cultura preventiva, integrando seguridad, salud física y bienestar emocional como pilares del éxito.
-                                    </p>
-                                </motion.div>
-                            </div>
                         </div>
                     </div>
                 </div>
