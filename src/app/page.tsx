@@ -772,28 +772,45 @@ export default function CaprexPage() {
                         </p>
                     </motion.div>
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={1}>
-                        {!sent ? (
-                            <form onSubmit={e => { e.preventDefault(); setSent(true); }} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                                {['Nombre de tu empresa', 'Tu email', 'WhatsApp / teléfono'].map(p => (
-                                    <input key={p} required placeholder={p}
-                                        style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
-                                        onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
-                                        onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
-                                ))}
-                                <button type="submit" style={{ background: '#fff', color: '#2563EB', border: 'none', borderRadius: '9999px', padding: '1rem', fontWeight: 900, fontSize: '0.9rem', letterSpacing: '0.08em', cursor: 'pointer', fontFamily: "'Space Grotesk',sans-serif", marginTop: '0.5rem', transition: 'transform 0.2s' }}
-                                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
-                                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}>
-                                    SOLICITAR COTIZACIÓN →
+                        <form onSubmit={e => {
+                            e.preventDefault();
+                            const formData = new FormData(e.currentTarget);
+                            const empresa = formData.get('empresa') as string;
+                            const email = formData.get('email') as string;
+                            const tel = formData.get('tel') as string;
 
-                                </button>
-                                <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.72rem', textAlign: 'center' }}>Sin spam. Respondemos en menos de 24 horas.</p>
-                            </form>
+                            const message = `Hola Carla, soy de la empresa *${empresa}*. Me gustaría solicitar una cotización.\n\n*Mis datos de contacto:*\n📧 Email: ${email}\n📱 WhatsApp: ${tel}`;
+                            const finalWaLink = `https://wa.me/56926198159?text=${encodeURIComponent(message)}`;
+
+                            setSent(true);
+                            window.open(finalWaLink, '_blank');
+                        }} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+                            <input required name="empresa" placeholder="Nombre de tu empresa"
+                                style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
+                                onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
+                                onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
+                            <input required name="email" type="email" placeholder="Tu email"
+                                style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
+                                onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
+                                onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
+                            <input required name="tel" placeholder="WhatsApp / teléfono"
+                                style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '0.75rem', padding: '0.9rem 1.1rem', color: '#fff', fontSize: '0.9rem', outline: 'none', fontFamily: 'Inter,sans-serif' }}
+                                onFocus={e => (e.target.style.borderColor = 'rgba(255,255,255,0.6)')}
+                                onBlur={e => (e.target.style.borderColor = 'rgba(255,255,255,0.25)')} />
+                            <button type="submit" style={{ background: '#fff', color: '#2563EB', border: 'none', borderRadius: '9999px', padding: '1rem', fontWeight: 900, fontSize: '0.9rem', letterSpacing: '0.08em', cursor: 'pointer', fontFamily: "'Space Grotesk',sans-serif", marginTop: '0.5rem', transition: 'transform 0.2s' }}
+                                onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
+                                onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}>
+                                SOLICITAR COTIZACIÓN →
+
+                            </button>
+                            <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.72rem', textAlign: 'center' }}>Sin spam. Respondemos en menos de 24 horas.</p>
+                        </form>
                         ) : (
-                            <div style={{ textAlign: 'center', padding: '2rem' }}>
-                                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✓</div>
-                                <div style={{ color: '#fff', fontFamily: "'Space Grotesk',sans-serif", fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>¡Listo!</div>
-                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Carla te contacta en menos de 24 horas.</p>
-                            </div>
+                        <div style={{ textAlign: 'center', padding: '2rem' }}>
+                            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✓</div>
+                            <div style={{ color: '#fff', fontFamily: "'Space Grotesk',sans-serif", fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>¡Listo!</div>
+                            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Carla te contacta en menos de 24 horas.</p>
+                        </div>
                         )}
                     </motion.div>
                 </div>
