@@ -633,70 +633,92 @@ export default function CaprexPage() {
                 </div>
             </section>
 
-            {/* ── CARLA (dark editorial) ── */}
-            <section id="nosotros" style={{ padding: '7rem 2.5rem', background: '#0F1A2E', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'absolute', bottom: '-10%', left: '-5%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle,#2563EB12 0%,transparent 70%)', pointerEvents: 'none' }} />
-                <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                    <div className="carla-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '4rem', alignItems: 'start' }}>
+            {/* ── CARLA GAJARDO (Editorial Narrative) ── */}
+            <section id="nosotros" style={{ padding: '8rem 2.5rem', background: '#0F1A2E', position: 'relative', overflow: 'hidden' }}>
+                <div style={{ position: 'absolute', top: '0', right: '0', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle,#2563EB08 0%,transparent 70%)', pointerEvents: 'none' }} />
 
-                        {/* Contenedor de Fotos (Cards de Fundadores) */}
-                        <div style={{ display: 'flex', justifyContent: 'center' }}>
-                            {[
-                                { name: 'Carla Gajardo', role: 'Cofundadora', bg: 'linear-gradient(160deg,#1A2D6B 0%,#0B1526 100%)' },
-                            ].map((f, idx) => (
-                                <motion.div key={f.name} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={idx * 0.2}
-                                    whileHover={{ y: -10, scale: 1.03, boxShadow: '0 30px 60px -15px rgba(37,99,235,0.3)' }}
-                                    style={{ position: 'relative', transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)', maxWidth: '400px', width: '100%' }}>
-                                    <div className="carla-foto" style={{
-                                        width: '100%', aspectRatio: '3/4',
-                                        background: f.bg,
-                                        borderRadius: '1.5rem', border: '1px solid #1E3A5F',
-                                        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end',
-                                        padding: '1.5rem', overflow: 'hidden', position: 'relative',
-                                    }}>
-                                        <div style={{ position: 'absolute', top: '1.5rem', left: '50%', transform: 'translateX(-50%)', fontSize: '2.5rem', opacity: 0.08, fontFamily: "'Space Grotesk',sans-serif", fontWeight: 900, letterSpacing: '-0.05em', color: '#2563EB', whiteSpace: 'nowrap' }}>
-                                            {f.name.split(' ')[0].toUpperCase()}
-                                        </div>
-                                        <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
-                                            <div style={{ fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.2em', color: '#2563EB', textTransform: 'uppercase', marginBottom: '0.3rem' }}>{f.role}</div>
-                                            <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: '1.4rem', fontWeight: 900, color: '#E2EAF8', letterSpacing: '-0.04em', lineHeight: 1.1 }}>{f.name}</div>
-                                        </div>
-                                        <div style={{ position: 'absolute', top: '1rem', right: '1rem', background: '#2563EB', borderRadius: '0.5rem', padding: '0.3rem 0.6rem' }}>
-                                            <span style={{ color: '#fff', fontSize: '0.6rem', fontWeight: 800, letterSpacing: '0.05em' }}>16 AÑOS EXP.</span>
-                                        </div>
-                                    </div>
+                <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+                    <div className="carla-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '5rem', alignItems: 'start' }}>
+
+                        {/* Columna Texto: Biografía Manifest */}
+                        <div>
+                            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}>
+                                <span style={{ color: '#2563EB', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.3rem', textTransform: 'uppercase' }}>Ingeniería Humanista</span>
+                                <h2 style={{ fontSize: 'clamp(2.2rem,4vw,3.8rem)', fontWeight: 900, lineHeight: 1, marginTop: '1rem', marginBottom: '2.5rem', letterSpacing: '-0.04em' }}>
+                                    Cuidar personas es el<br />
+                                    <span style={{ color: '#2563EB' }}>corazón de todo.</span>
+                                </h2>
+
+                                <div style={{ color: '#E2EAF8', fontSize: '1.05rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1.5rem', opacity: 0.9 }}>
+                                    <p>
+                                        Cuando elegí estudiar ingeniería, busqué la más humanista que pudiera encontrar. Por eso elegí <strong>Prevención de Riesgos</strong>, porque quería dedicar mi vida a cuidar a las personas.
+                                    </p>
+                                    <p>
+                                        Esa decisión se transformó en más de <strong>16 años de experiencia profesional</strong>, logrando lo que realmente importa: disminuir accidentes y generar entornos de trabajo más seguros y conscientes.
+                                    </p>
+                                    <blockquote style={{ borderLeft: '3px solid #2563EB', paddingLeft: '1.5rem', margin: '1rem 0', fontStyle: 'italic', color: '#94A3B8' }}>
+                                        "La prevención no puede quedarse en documentos o protocolos. La prevención bien hecha mejora la calidad de vida de las personas."
+                                    </blockquote>
+                                    <p>
+                                        Mi propósito es claro: que cada trabajador llegue sano, física y emocionalmente, a su casa. Hoy trabajamos para que la seguridad deje de ser una obligación y se transforme en una <strong>forma real de cuidar</strong>.
+                                    </p>
+                                </div>
+
+                                <motion.div style={{ marginTop: '3rem' }} whileHover={{ scale: 1.02 }}>
+                                    <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="c-btn c-btn-primary">
+                                        <MessageCircle size={18} /> Contactar a Carla
+                                    </a>
                                 </motion.div>
-                            ))}
+                            </motion.div>
                         </div>
 
-                        {/* Copy */}
-                        <div>
-                            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={0}>
-                                <span style={{ color: '#2563EB', fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase' }}>Por qué CAPREX</span>
-                                <h2 style={{ fontSize: 'clamp(2rem,4vw,3.5rem)', fontWeight: 900, lineHeight: 1.05, marginTop: '0.75rem', marginBottom: '1.5rem', letterSpacing: '-0.04em' }}>
-                                    Soluciones claras, aplicables<br />
-                                    <span style={{ color: '#2563EB' }}>y estratégicas.</span>
-                                </h2>
-                                <p style={{ color: '#64748B', lineHeight: 1.8, marginBottom: '2rem' }}>
-                                    CAPREX es una consultora en prevención de riesgos enfocada en entregar soluciones claras, aplicables y estratégicas para organizaciones que necesitan cumplir con la normativa vigente y fortalecer su cultura preventiva. Trabajamos desde la gestión legal básica hasta el desarrollo de programas de cultura y comunicación preventiva, adaptándonos al tamaño y realidad de cada empresa.
-                                </p>
+                        {/* Columna Identidad: Foto + Misión/Visión */}
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+                            {/* Card Fotografía (Placeholder animado) */}
+                            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+                                whileHover={{ y: -5 }}
+                                style={{ position: 'relative', borderRadius: '2rem', border: '1px solid #1E3A5F', background: 'linear-gradient(160deg,#1A2D6B 0%,#0B1526 100%)', overflow: 'hidden', aspectRatio: '4/5', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                <div style={{ textAlign: 'center', opacity: 0.15 }}>
+                                    <Image src={LOGO} alt="CAPREX" width={150} height={40} style={{ filter: 'grayscale(1)', marginBottom: '1rem' }} />
+                                    <p style={{ fontSize: '0.8rem', fontWeight: 600, letterSpacing: '0.1em' }}>ESPACIO PARA FOTOGRAFÍA</p>
+                                </div>
+                                <div style={{ position: 'absolute', bottom: '0', left: '0', right: '0', padding: '2rem', background: 'linear-gradient(to top, rgba(11,21,38,0.95), transparent)', textAlign: 'center' }}>
+                                    <div style={{ color: '#2563EB', fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>Fundadora & Senior Consultant</div>
+                                    <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#fff', fontFamily: "'Space Grotesk', sans-serif" }}>Carla Gajardo</div>
+                                </div>
+                                <div style={{ position: 'absolute', top: '1.5rem', right: '1.5rem', background: '#2563EB', borderRadius: '0.75rem', padding: '0.5rem 0.8rem', boxShadow: '0 10px 20px rgba(37,99,235,0.3)' }}>
+                                    <span style={{ color: '#fff', fontSize: '0.7rem', fontWeight: 900 }}>16+ AÑOS DE EXPERIENCIA</span>
+                                </div>
                             </motion.div>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-                                {['Soluciones adaptadas al tamaño y realidad de cada empresa', 'Desde cumplimiento legal hasta cultura y comunicación preventiva', 'Trato directo — sin intermediarios ni call centers', 'Respuesta en menos de 24 horas'].map((f, i) => (
-                                    <motion.div key={f} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={i + 1}
-                                        whileHover={{ x: 5, color: '#E2EAF8' }}
-                                        style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', cursor: 'default', transition: 'all 0.2s ease' }}>
-                                        <CheckCircle2 size={16} color="#2563EB" style={{ marginTop: '0.15rem', flexShrink: 0 }} />
-                                        <span style={{ color: '#94A3B8', fontSize: '0.95rem' }}>{f}</span>
-                                    </motion.div>
-                                ))}
+
+                            {/* Misión & Visión */}
+                            <div style={{ display: 'grid', gap: '1.5rem' }}>
+                                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}
+                                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '1.5rem' }}>
+                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '0.75rem' }}>
+                                        <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <Target size={20} color="#2563EB" />
+                                        </div>
+                                        <h4 style={{ fontSize: '1.1rem', fontWeight: 800 }}>Misión</h4>
+                                    </div>
+                                    <p style={{ color: '#94A3B8', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                        Diseñar soluciones integrales que vayan más allá del cumplimiento legal, generando impacto real en la seguridad, bienestar y productividad mediante un enfoque cercano y profundamente humano.
+                                    </p>
+                                </motion.div>
+
+                                <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={2}
+                                    style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '1.5rem' }}>
+                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '0.75rem' }}>
+                                        <div style={{ width: '40px', height: '40px', borderRadius: '12px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                            <TrendingUp size={20} color="#2563EB" />
+                                        </div>
+                                        <h4 style={{ fontSize: '1.1rem', fontWeight: 800 }}>Visión</h4>
+                                    </div>
+                                    <p style={{ color: '#94A3B8', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                                        Ser la consultora referente en Chile, reconocida por transformar la cultura preventiva, integrando seguridad, salud física y bienestar emocional como pilares del éxito.
+                                    </p>
+                                </motion.div>
                             </div>
-                            <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={5}
-                                style={{ marginTop: '2.5rem' }}>
-                                <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="c-btn c-btn-primary">
-                                    <MessageCircle size={16} /> Contactar a los socios
-                                </a>
-                            </motion.div>
                         </div>
                     </div>
                 </div>
