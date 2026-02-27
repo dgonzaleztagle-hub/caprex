@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, Menu, X, FileText, CalendarCheck, AlertOctagon, Heart, Video, Trophy, MessageCircle, ChevronDown, CheckCircle2, ArrowRight, Building2, TrendingUp, Landmark, Users } from 'lucide-react';
+import { ChevronRight, Menu, X, FileText, CalendarCheck, AlertOctagon, Heart, Video, Trophy, MessageCircle, ChevronDown, CheckCircle2, ArrowRight, Building2, TrendingUp, Landmark, Users, Target } from 'lucide-react';
 
 const LOGO = '/prospectos/caprex/logo.png';
 const WA_LINK = 'https://wa.me/56926198159?text=Hola%2C%20quiero%20una%20propuesta%20personalizada%20para%20mi%20empresa';
