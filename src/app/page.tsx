@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { ChevronRight, Menu, X, FileText, CalendarCheck, AlertOctagon, Heart, Video, Trophy, MessageCircle, ChevronDown, CheckCircle2, ArrowRight, Building2, TrendingUp, Landmark, Users, Target } from 'lucide-react';
 
@@ -309,12 +310,12 @@ export default function CaprexPage() {
                 </motion.div>
                 <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center' }} className="desktop-nav">
                     {NAV.map(l => (
-                        <a key={l} href={`#${l.toLowerCase()}`}
+                        <Link key={l} href={l === 'Misión y Visión' ? '/mision-y-vision' : `/#${l.toLowerCase()}`}
                             style={{ color: '#64748B', fontSize: '0.78rem', fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase', textDecoration: 'none', transition: 'color 0.2s' }}
                             onMouseEnter={e => (e.currentTarget.style.color = '#E2EAF8')}
                             onMouseLeave={e => (e.currentTarget.style.color = '#64748B')}>
                             {l}
-                        </a>
+                        </Link>
                     ))}
                     <button className="c-btn c-btn-primary" style={{ padding: '0.7rem 1.6rem', fontSize: '0.75rem' }} onClick={() => setContactOpen(true)}>
                         Cotizar ahora
@@ -331,10 +332,10 @@ export default function CaprexPage() {
                     <motion.div initial={{ opacity: 0, x: 80 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 80 }}
                         style={{ position: 'fixed', inset: 0, zIndex: 190, background: '#0B1526', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '3rem' }}>
                         {NAV.map(l => (
-                            <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}
+                            <Link key={l} href={l === 'Misión y Visión' ? '/mision-y-vision' : `/#${l.toLowerCase()}`} onClick={() => setMenuOpen(false)}
                                 style={{ color: '#E2EAF8', fontSize: '2.5rem', fontFamily: "'Space Grotesk',sans-serif", fontWeight: 800, textDecoration: 'none', letterSpacing: '-0.04em' }}>
                                 {l}
-                            </a>
+                            </Link>
                         ))}
                         <button className="c-btn c-btn-primary" onClick={() => { setMenuOpen(false); setContactOpen(true); }}>Contáctanos ahora</button>
                     </motion.div>
@@ -616,34 +617,6 @@ export default function CaprexPage() {
                 <div style={{ position: 'absolute', top: '0', right: '0', width: '600px', height: '600px', borderRadius: '50%', background: 'radial-gradient(circle,#2563EB08 0%,transparent 70%)', pointerEvents: 'none' }} />
 
                 <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
-                    {/* Top: Misión & Visión (Autoridad Institucional) */}
-                    <div id="misión y visión" className="mission-vision-grid" style={{ marginBottom: '5rem' }}>
-                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}
-                            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '2rem' }}>
-                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
-                                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <Target size={24} color="#2563EB" />
-                                </div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: "'Space Grotesk', sans-serif" }}>Misión</h4>
-                            </div>
-                            <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: 1.7 }}>
-                                Diseñar soluciones integrales en prevención de riesgos que vayan más allá del cumplimiento legal, generando impacto real en la seguridad, bienestar y productividad organizacional.
-                            </p>
-                        </motion.div>
-
-                        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={1}
-                            style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '2rem' }}>
-                            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
-                                <div style={{ width: '48px', height: '48px', borderRadius: '14px', background: 'rgba(37,99,235,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <TrendingUp size={24} color="#2563EB" />
-                                </div>
-                                <h4 style={{ fontSize: '1.25rem', fontWeight: 800, fontFamily: "'Space Grotesk', sans-serif" }}>Visión</h4>
-                            </div>
-                            <p style={{ color: '#94A3B8', fontSize: '1rem', lineHeight: 1.7 }}>
-                                Ser la consultora referente en Chile, reconocida por transformar la cultura preventiva e integrar la salud física y bienestar emocional como pilares del éxito.
-                            </p>
-                        </motion.div>
-                    </div>
 
                     <div className="carla-grid" style={{ alignItems: 'center' }}>
 
@@ -656,19 +629,21 @@ export default function CaprexPage() {
                                     <span style={{ color: '#2563EB' }}>seguridad estratégica.</span>
                                 </h2>
 
-                                <div style={{ color: '#E2EAF8', fontSize: '1.05rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1.5rem', opacity: 0.9 }}>
+                                <div style={{ color: '#E2EAF8', fontSize: '1.05rem', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '1.5rem', opacity: 0.9, fontStyle: 'italic' }}>
                                     <p>
                                         Cuando elegí estudiar ingeniería, busqué la más humanista que pudiera encontrar. Por eso elegí <strong>Prevención de Riesgos</strong>, porque quería dedicar mi vida a cuidar a las personas.
                                     </p>
                                     <p>
                                         Esa decisión se transformó en más de <strong>16 años de experiencia profesional</strong>, logrando lo que realmente importa: disminuir accidentes y generar entornos de trabajo más seguros y conscientes.
                                     </p>
-                                    <blockquote style={{ borderLeft: '3px solid #2563EB', paddingLeft: '1.5rem', margin: '1rem 0', fontStyle: 'italic', color: '#94A3B8' }}>
+                                    <blockquote style={{ borderLeft: '3px solid #2563EB', paddingLeft: '1.5rem', margin: '1rem 0', color: '#94A3B8' }}>
                                         "La prevención no puede quedarse en documentos o protocolos. La prevención bien hecha mejora la calidad de vida de las personas."
-                                        <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.9em' }}>— Carla Gajardo</span>
                                     </blockquote>
                                     <p>
                                         Mi propósito es claro: que cada trabajador llegue sano, física y emocionalmente, a su casa. Hoy trabajamos para que la seguridad deje de ser una obligación y se transforme en una <strong>forma real de cuidar</strong>.
+                                    </p>
+                                    <p style={{ color: '#94A3B8', fontSize: '0.9em', marginTop: '-0.5rem' }}>
+                                        — Carla Gajardo
                                     </p>
                                 </div>
 
