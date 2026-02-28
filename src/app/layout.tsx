@@ -64,7 +64,7 @@ export default function CaprexLayout({
     };
 
     return (
-        <html lang="es">
+        <html lang="es" suppressHydrationWarning>
             <body>
                 <Script
                     id="caprex-jsonld"

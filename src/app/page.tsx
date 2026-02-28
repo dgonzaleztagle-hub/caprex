@@ -189,7 +189,9 @@ export default function CaprexPage() {
 
             <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap');
-        .caprex-root { background:#0B1526; color:#E2EAF8; font-family:'Inter',sans-serif; overflow-x:hidden; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; background: #0B1526; min-height: 100%; width: 100%; }
+        .caprex-root { background:#0B1526; color:#E2EAF8; font-family:'Inter',sans-serif; overflow-x:hidden; width: 100%; }
         .caprex-root h1,.caprex-root h2,.caprex-root h3,.caprex-root h4 { font-family:'Space Grotesk',sans-serif; letter-spacing:-0.05em; }
         ::-webkit-scrollbar{width:4px} ::-webkit-scrollbar-track{background:#0B1526} ::-webkit-scrollbar-thumb{background:#2563EB;border-radius:4px}
         .c-btn { display:inline-flex;align-items:center;gap:0.5rem;padding:1.2rem 2.8rem;border-radius:9999px;font-weight:800;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;transition:all 0.25s ease;cursor:pointer;border:none;font-family:'Space Grotesk',sans-serif; }
@@ -209,6 +211,19 @@ export default function CaprexPage() {
         .faq-q:hover { color:#2563EB; }
         .testi-card { background:rgba(255,255,255,0.03);border:1px solid #1E3A5F44;border-radius:1.25rem;padding:2rem;display:flex;flex-direction:column;gap:1.25rem;transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .testi-card:hover { border-color:#2563EB66; background:rgba(37,99,235,0.07); transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 40px -20px rgba(37,99,235,0.3); }
+
+        /* Desktop Grids - Restoring layouts */
+        .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 4rem; align-items: center; }
+        .hero-section { min-height: 100vh; }
+        .bento-row { display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .bento-row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 1.5rem; }
+        .bento-awards { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .mission-vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .carla-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 5rem; align-items: center; }
+        .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+        .targets-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
         @media(max-width:768px){
           /* Nav */
           .desktop-nav{display:none!important}
