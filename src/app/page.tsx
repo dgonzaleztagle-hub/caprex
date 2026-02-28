@@ -103,8 +103,8 @@ const FAQS = [
         a: 'El Decreto Supremo 44 establece que toda empresa con más de 25 trabajadores debe contar con un sistema de gestión de seguridad y salud en el trabajo. Incluye identificación de riesgos, planes de prevención, capacitaciones documentadas y comités paritarios. Sin cumplimiento, la multa puede superar las 200 UTM por infracción.'
     },
     {
-        q: '¿La Ley Karin me obliga aunque yo no haya tenido casos de acoso?',
-        a: 'Sí. La Ley 21.643 (Ley Karin), vigente desde agosto 2024, obliga a todas las empresas a tener un protocolo de prevención de acoso laboral y sexual, independiente del tamaño o de si ha habido casos previos. No tenerlo es una infracción sancionable por la Dirección del Trabajo.'
+        q: '¿Qué tan grave es no tener la matriz IPER actualizada?',
+        a: 'La Matriz de Identificación de Peligros y Evaluación de Riesgos (IPER) es la base de todo sistema preventivo. No tenerla o tenerla desactualizada ante un accidente grave puede significar la clausura inmediata de la faena y multas que superan los cientos de UTM, además de dejar a la empresa sin defensa legal.'
     },
     {
         q: '¿Cuánto cuesta no tener un prevencionista externo?',
@@ -114,10 +114,7 @@ const FAQS = [
         q: '¿En cuánto tiempo pueden implementar el sistema?',
         a: 'Para empresas de hasta 100 trabajadores, el diagnóstico inicial toma 1-2 semanas. La implementación básica del plan de prevención y protocolos obligatorios se completa en 4-8 semanas. El acompañamiento continuo es mensual y se ajusta a tus necesidades.'
     },
-    {
-        q: '¿Qué diferencia a CAPREX de contratar a una mutualidad?',
-        a: 'Las mutualidades ofrecen servicios estándar y masivos. CAPREX es una consultoría boutique: trato directo con la prevencionista, planes adaptados a tu rubro específico, disponibilidad real y documentación personalizada. No eres un número de expediente.'
-    },
+
     {
         q: '¿Trabajan con empresas pequeñas (menos de 50 trabajadores)?',
         a: 'Sí, es nuestro foco principal. Las pequeñas empresas son las que más necesitan asesoría externa porque no pueden costear un prevencionista de planta, y son las más vulnerables fiscalmente. Tenemos planes diseñados específicamente para este segmento.'
@@ -257,12 +254,19 @@ export default function CaprexPage() {
           .caprex-root nav{padding:1rem 1.25rem!important;}
 
           /* Bento grid mobile */
-          .bento-row{grid-template-columns:1fr!important;}
-          .bento-row-3{grid-template-columns:1fr!important;}
-          .bento-awards{grid-template-columns:1fr!important;gap:1.5rem!important;}
+          .bento-row, .bento-row-3, .mission-vision-grid, .testi-grid, .hero-grid, .carla-grid { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+          .bento-awards { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+
+          /* Mission/Vision specifics */
+          .mission-vision-grid { gap: 1rem !important; }
+
+          /* Hero specifics */
+          .hero-section { padding-top: 6rem !important; height: auto !important; min-height: 100svh !important; }
+          .hero-actions { flex-direction: column !important; width: 100% !important; }
+          .hero-actions .c-btn { width: 100% !important; justify-content: center !important; }
 
           /* Inputs full width */
-          .caprex-root input{width:100%!important;box-sizing:border-box!important;}
+          .caprex-root input { width: 100% !important; box-sizing: border-box !important; }
         }
         .caprex-root input::placeholder { color: rgba(255,255,255,0.7) !important; opacity: 1; }
         .caprex-root input:-ms-input-placeholder { color: rgba(255,255,255,0.7) !important; }
@@ -323,7 +327,7 @@ export default function CaprexPage() {
             </AnimatePresence>
 
             {/* ── HERO ── */}
-            <section ref={heroRef} className="hero-section" style={{ height: '100vh', display: 'flex', alignItems: 'center', padding: '5rem 2.5rem 3rem', position: 'relative', overflow: 'hidden' }}>
+            <section ref={heroRef} className="hero-section" style={{ display: 'flex', alignItems: 'center', padding: '5rem 2.5rem 3rem', position: 'relative', overflow: 'hidden' }}>
 
                 {/* Video BG con parallax */}
                 <motion.video autoPlay loop muted playsInline
@@ -334,7 +338,7 @@ export default function CaprexPage() {
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg,#0B1526CC 45%,transparent 75%)' }} />
 
                 <div style={{ maxWidth: '1300px', margin: '0 auto', width: '100%', position: 'relative', zIndex: 1 }}>
-                    <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '3rem', alignItems: 'center' }}>
+                    <div className="hero-grid" style={{ alignItems: 'center' }}>
 
                         {/* IZQUIERDA */}
                         <div>
@@ -359,6 +363,7 @@ export default function CaprexPage() {
                             </motion.p>
 
                             <motion.div variants={fadeUp} initial="hidden" animate="visible" custom={3}
+                                className="hero-actions"
                                 style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                                 <button className="c-btn c-btn-primary" onClick={() => setContactOpen(true)}>
                                     Solicitar cotización <ChevronRight size={15} />
@@ -377,7 +382,7 @@ export default function CaprexPage() {
                                 <div style={{ color: '#E2EAF8', fontWeight: 600, marginTop: '0.5rem', fontSize: '0.9rem' }}>accidentes laborales al año en Chile</div>
                                 <div style={{ color: '#64748B', fontSize: '0.72rem', marginTop: '0.2rem' }}>Fuente: ISL · Estadísticas 2023</div>
                                 <div style={{ marginTop: '1.25rem', borderTop: '1px solid #1E3A5F', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                    {[['68%', 'empresas sin protocolo Ley Karin'], ['−40%', 'reducción con asesoría externa']].map(([v, l]) => (
+                                    {[['72%', 'empresas con sistemas IPER desactualizados'], ['−40%', 'reducción con asesoría externa']].map(([v, l]) => (
                                         <div key={v} style={{ display: 'flex', gap: '0.75rem', alignItems: 'baseline' }}>
                                             <span style={{ color: '#2563EB', fontWeight: 800, fontSize: '1rem', fontFamily: "'Space Grotesk',sans-serif" }}>{v}</span>
                                             <span style={{ color: '#64748B', fontSize: '0.78rem' }}>{l}</span>
@@ -442,7 +447,7 @@ export default function CaprexPage() {
                     </motion.div>
 
                     {/* Fila 1: Cumplimiento (grande) + Asesoría Mensual (pequeña) */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.25rem', marginBottom: '1.25rem' }} className="bento-row">
+                    <div className="bento-row" style={{ marginBottom: '1.25rem' }}>
                         {/* Card grande: Cumplimiento Legal */}
                         {(() => {
                             const s = SERVICES[0]; return (
@@ -503,7 +508,7 @@ export default function CaprexPage() {
                     </div>
 
                     {/* Fila 2: Planes de Emergencia + Cultura + Audiovisual */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.25rem', marginBottom: '1.25rem' }} className="bento-row-3">
+                    <div className="bento-row-3" style={{ marginBottom: '1.25rem' }}>
                         {SERVICES.slice(2, 5).map((s, i) => (
                             <motion.div key={s.n} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={i}
                                 whileHover={{ y: -8, scale: 1.02, borderColor: '#2563EB88', backgroundColor: 'rgba(255,255,255,0.04)' }}
@@ -558,7 +563,7 @@ export default function CaprexPage() {
                         const s = SERVICES[5]; return (
                             <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }}
                                 whileHover={{ scale: 1.01, borderColor: '#F5A62388', boxShadow: '0 25px 80px -20px rgba(245,166,35,0.25)' }}
-                                style={{ background: 'linear-gradient(135deg,#1A1200 0%,#2A1A00 50%,#0B1526 100%)', border: '1px solid #F5A62333', borderRadius: '1.5rem', padding: '3rem', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center', position: 'relative', overflow: 'hidden', transition: 'all 0.5s ease' }}
+                                style={{ background: 'linear-gradient(135deg,#1A1200 0%,#2A1A00 50%,#0B1526 100%)', border: '1px solid #F5A62333', borderRadius: '1.5rem', padding: '3rem', alignItems: 'center', position: 'relative', overflow: 'hidden', transition: 'all 0.5s ease' }}
                                 className="bento-awards">
                                 {/* Glow dorado */}
                                 <div style={{ position: 'absolute', top: '-20%', right: '-5%', width: '350px', height: '350px', borderRadius: '50%', background: 'radial-gradient(circle,#F5A62322 0%,transparent 65%)', pointerEvents: 'none' }} />
@@ -597,7 +602,7 @@ export default function CaprexPage() {
 
                 <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
                     {/* Top: Misión & Visión (Autoridad Institucional) */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '2rem', marginBottom: '5rem' }}>
+                    <div className="mission-vision-grid" style={{ marginBottom: '5rem' }}>
                         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}
                             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '2rem' }}>
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
@@ -625,7 +630,7 @@ export default function CaprexPage() {
                         </motion.div>
                     </div>
 
-                    <div className="carla-grid" style={{ display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '5rem', alignItems: 'center' }}>
+                    <div className="carla-grid" style={{ alignItems: 'center' }}>
 
                         {/* Columna Texto: Biografía Manifest */}
                         <div>
@@ -692,7 +697,7 @@ export default function CaprexPage() {
                             LO QUE DICEN<br /><span style={{ color: '#1E3A5F' }}>NUESTROS CLIENTES.</span>
                         </h2>
                     </motion.div>
-                    <div className="testi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '1.5rem' }}>
+                    <div className="testi-grid">
                         {TESTIMONIALS.map((t, i) => (
                             <motion.div key={t.initials} className="testi-card" variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={i}>
                                 <p style={{ color: '#94A3B8', fontSize: '0.95rem', lineHeight: 1.75, fontStyle: 'italic', flexGrow: 1 }}>"{t.quote}"</p>
@@ -751,7 +756,7 @@ export default function CaprexPage() {
                             ¿TU EMPRESA<br />ESTÁ<br />PROTEGIDA?
                         </h2>
                         <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: '1.5rem', lineHeight: 1.7 }}>
-                            Solicita tu propuesta personalizada. Evaluamos tu empresa frente al DS44 y la Ley Karin en una sesión directa con Carla para diseñar un plan a tu medida.
+                            Solicita tu propuesta personalizada. Evaluamos tu empresa frente al DS44 y normativas vigentes para diseñar un plan a tu medida con nuestro equipo de expertos.
                         </p>
                     </motion.div>
                     <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.05 }} custom={1}>
@@ -763,7 +768,7 @@ export default function CaprexPage() {
                                 const email = formData.get('email') as string;
                                 const tel = formData.get('tel') as string;
 
-                                const message = `Hola Carla, soy de la empresa *${empresa}*. Me gustaría solicitar una cotización.\n\n*Mis datos de contacto:*\n📧 Email: ${email}\n📱 WhatsApp: ${tel}`;
+                                const message = `Hola CAPREX, soy de la empresa *${empresa}*. Me gustaría solicitar una cotización.\n\n*Mis datos de contacto:*\n📧 Email: ${email}\n📱 WhatsApp: ${tel}`;
                                 const finalWaLink = `https://wa.me/56926198159?text=${encodeURIComponent(message)}`;
 
                                 setSent(true);
@@ -792,7 +797,7 @@ export default function CaprexPage() {
                             <div style={{ textAlign: 'center', padding: '2rem' }}>
                                 <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✓</div>
                                 <div style={{ color: '#fff', fontFamily: "'Space Grotesk',sans-serif", fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.5rem' }}>¡Listo!</div>
-                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Carla te contacta en menos de 24 horas.</p>
+                                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.9rem' }}>Nuestro equipo te contactará en menos de 24 horas.</p>
                             </div>
                         )}
                     </motion.div>

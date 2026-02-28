@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'CAPREX | Prevención de Riesgos Laborales',
-        description: 'Consultoría boutique de prevención de riesgos. Rigor técnico, trato personal. DS44, Ley Karin, IPER y más.',
+        description: 'Consultoría boutique de prevención de riesgos. Rigor técnico, trato personal. DS44, IPER, Matriz de riesgos y más.',
         type: 'website',
     },
 };
@@ -64,13 +64,15 @@ export default function CaprexLayout({
     };
 
     return (
-        <>
-            <Script
-                id="caprex-jsonld"
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            {children}
-        </>
+        <html lang="es">
+            <body>
+                <Script
+                    id="caprex-jsonld"
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+                {children}
+            </body>
+        </html>
     );
 }
