@@ -7,7 +7,7 @@ import { ChevronRight, Menu, X, FileText, CalendarCheck, AlertOctagon, Heart, Vi
 
 const LOGO = '/prospectos/caprex/logo.png';
 const WA_LINK = 'https://wa.me/56926198159?text=Hola%2C%20quiero%20una%20propuesta%20personalizada%20para%20mi%20empresa';
-const NAV = ['Servicios', 'Nosotros', 'Contacto'];
+const NAV = ['Servicios', 'Nosotros', 'Misión y Visión', 'Contacto'];
 
 // ── SERVICIOS REALES (del documento del cliente) ──────────────────
 const SERVICES = [
@@ -552,12 +552,12 @@ export default function CaprexPage() {
                                             </motion.div>
                                         ))}
                                     </div>
-                                ) : (
-                                    <p style={{ color: '#64748B', fontSize: '0.82rem', lineHeight: 1.6, flexGrow: 1 }}>{s.desc || s.items.join(' · ')}</p>
-                                )}
+                                ) : s.desc ? (
+                                    <p style={{ color: '#64748B', fontSize: '0.82rem', lineHeight: 1.6, flexGrow: 1 }}>{s.desc}</p>
+                                ) : null}
                                 {s.items.length > 0 && !s.desc && !('segments' in s) && (
 
-                                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                                    <ul style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', flexGrow: 1 }}>
                                         {s.items.map(item => (
                                             <li key={item} style={{ display: 'flex', gap: '0.4rem', alignItems: 'flex-start' }}>
                                                 <CheckCircle2 size={11} color="#2563EB" style={{ marginTop: '0.2rem', flexShrink: 0 }} />
@@ -617,7 +617,7 @@ export default function CaprexPage() {
 
                 <div style={{ maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
                     {/* Top: Misión & Visión (Autoridad Institucional) */}
-                    <div className="mission-vision-grid" style={{ marginBottom: '5rem' }}>
+                    <div id="misión y visión" className="mission-vision-grid" style={{ marginBottom: '5rem' }}>
                         <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={0}
                             style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.5rem', padding: '2rem' }}>
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
@@ -665,6 +665,7 @@ export default function CaprexPage() {
                                     </p>
                                     <blockquote style={{ borderLeft: '3px solid #2563EB', paddingLeft: '1.5rem', margin: '1rem 0', fontStyle: 'italic', color: '#94A3B8' }}>
                                         "La prevención no puede quedarse en documentos o protocolos. La prevención bien hecha mejora la calidad de vida de las personas."
+                                        <span style={{ display: 'block', marginTop: '0.5rem', fontSize: '0.9em' }}>— Carla Gajardo</span>
                                     </blockquote>
                                     <p>
                                         Mi propósito es claro: que cada trabajador llegue sano, física y emocionalmente, a su casa. Hoy trabajamos para que la seguridad deje de ser una obligación y se transforme en una <strong>forma real de cuidar</strong>.
